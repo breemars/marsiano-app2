@@ -1,0 +1,81 @@
+.table-view{
+    -fx-background-color: transparent;
+ }
+
+.table-view .column-header {
+     -fx-background-color: transparent;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: transparent;
+}
+
+.table-view .scroll-bar {
+    -fx-background-color: whitesmoke;
+}
+
+.table-view .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-font-size: 22px;
+    -fx-text-fill: grey;
+    -fx-alignment: center-left;
+    -fx-font-weight: normal;
+    -fx-font-family: Arial;
+}
+
+.table-view .column-header-background .label:hover{
+    -fx-text-fill: black;
+}
+
+.table-view .table-cell{
+    -fx-font-size:18px;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: cyan;
+}
+
+.table-row-cell:odd:hover {
+    -fx-background-color: cyan;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: dodgerblue;
+    -fx-text-fill: white;
+    -fx-background-radius: 15px;
+}
+
+.table-row-cell:odd:selected {
+    -fx-background-color: dodgerblue;
+    -fx-text-fill: white;
+    -fx-background-radius: 15px;
+}
+
+ .table-row-cell{
+    -fx-background-color: white;
+}
+
+.table-row-cell:odd{
+    -fx-background-color: white;
+}
+
+.button{
+    -fx-background-color: lightgrey;
+}
+
+.button:hover{
+    -fx-text-fill: white;
+    -fx-background-color: rgb(0, 150, 201);
+}
+
+.text-field{
+    -fx-background-color: white;
+    -fx-border-color: silver;
+    -fx-border-radius: 8px;
+    -fx-font-size:15px;
+    -fx-font-family: Corbel;
+}
