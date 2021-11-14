@@ -11,7 +11,7 @@
 }
 
 .table-view .scroll-bar {
-    -fx-background-color: #303030;
+    -fx-background-color: whitesmoke;
 }
 
 .table-view .scroll-bar:horizontal {
@@ -21,7 +21,7 @@
 .table-view .column-header-background .label{
     -fx-background-color: transparent;
     -fx-font-size: 22px;
-    -fx-text-fill: white;
+    -fx-text-fill: grey;
     -fx-alignment: center-left;
     -fx-font-weight: normal;
     -fx-font-family: Arial;
@@ -33,46 +33,40 @@
 
 .table-view .table-cell{
     -fx-font-size:18px;
-    -fx-text-fill: lightgrey;
-   // -fx-border-color: black;
-    -fx-table-cell-border-color: #303030;
+    -fx-background-color: whitesmoke;
+    -fx-table-cell-border-color: lightgrey;
 }
 
 .table-row-cell:hover {
-    -fx-background-color: red;
-    -fx-text-fill: white;
+    -fx-background-color: cyan;
 }
 
 .table-row-cell:odd:hover {
-    -fx-background-color: red;
-    -fx-text-fill: white;
+    -fx-background-color: cyan;
 }
 
 .table-row-cell:selected {
-    -fx-background-color: pink;
+    -fx-background-color: dodgerblue;
     -fx-text-fill: white;
     -fx-background-radius: 15px;
 }
 
 .table-row-cell:odd:selected {
-    -fx-background-color: pink;
+    -fx-background-color: dodgerblue;
     -fx-text-fill: white;
     -fx-background-radius: 15px;
 }
 
  .table-row-cell{
-    -fx-background-color: #292929;
-    -fx-border-color: #292929;
+    -fx-background-color: white;
 }
 
 .table-row-cell:odd{
-    -fx-background-color: #303030;
-    -fx-border-color: #303030;
+    -fx-background-color: white;
 }
 
 .button{
-    -fx-background-color: #909090;
-    -fx-text-fill: black;
+    -fx-background-color: lightgrey;
 }
 
 .button:hover{
@@ -81,50 +75,38 @@
 }
 
 .text-field{
-    -fx-background-color: #202020;
-    -fx-font-fill: white;
+    //-fx-background-color: white;
+    //-fx-border-color: silver;
+    //-fx-border-radius: 8px;
+    //-fx-font-size:15px;
+    //-fx-font-family: Corbel;
 }
 
 .newTextFields{
+    -fx-background-color: white;
+    -fx-border-color: silver;
     -fx-border-radius: 8px;
     -fx-font-size:14px;
     -fx-font-family: Corbel;
 }
 
-.text-field .label{
-    -fx-font-fill: pink;
-}
-
-AnchorPane, HBox, VBox{
-    -fx-background-color: #303030;
-}
-
 .bottomPane{
--fx-background-color: #303030;
+-fx-background-color: whitesmoke;
 }
 
 .statusBar{
--fx-background-color: #151515;
+-fx-background-color: lightgrey;
 -fx-text-fill: white;
 }
 
 .rect{
-    -fx-fill: #303030;
+    -fx-fill: whitesmoke;
 
-}
-
-.separator{
--fx-fill: pink;
 }
 
 .menu{
-    -fx-background-color: #202020;
-    -fx-border-color: #303030;
+    -fx-background-color: whitesmoke; //change
+    -fx-border-color: whitesmoke;
     -fx-background-radius: 20px;
     -fx-border-width: 0px;
-    -fx-text-fill: whitesmoke;
-}
-
-.label{
-    -fx-text-fill: whitesmoke;
 }
