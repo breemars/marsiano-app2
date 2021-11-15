@@ -1,0 +1,60 @@
+@startuml
+
+class Item {
+'attributes
+    - id : String
+    - name : SimpleStringProperty
+    - price : String
+
+'methods
+    +Task(String id, String name, String price)
+
+    +setId(String id)
+    +setName(String name)
+    +setPrice(String price)
+
+    +getId() : String
+    +getName() : String
+    +getPrice() : String
+}
+
+class ApplicationController{
+'attributes
+    - tableView : TableView<Task>
+    - idColumn : TableColumn<Task, String>
+    - nameColumn : TableColumn<Task, String>
+    - priceColumn : TableColumn<Task, String>
+
+    - TextField idField;
+    - TextField nameField;
+    - TextField priceField;
+    - statusMessageTxt : Label
+
+'methods
+    -newItem()
+
+    -openList()
+    -downloadList()
+
+    -deleteItem()
+    -clearAll()
+
+    -changeID()
+    -changeName()
+    -changePrice()
+
+    -searchById()
+    -searchByName()
+
+    -darkMode()
+
+    +initialize()
+}
+
+class InventoryManagementApplication{
+'methods
+    +main(String[] args)
+    +start(Stage stage)
+}
+
+@enduml
