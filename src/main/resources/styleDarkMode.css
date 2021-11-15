@@ -70,6 +70,7 @@
     -fx-border-color: #303030;
 }
 
+/*
 .button{
     -fx-background-color: #909090;
     -fx-text-fill: black;
@@ -78,7 +79,7 @@
 .button:hover{
     -fx-text-fill: white;
     -fx-background-color: rgb(0, 150, 201);
-}
+}*/
 
 .text-field{
     -fx-background-color: #202020;
@@ -114,7 +115,7 @@ AnchorPane, HBox, VBox{
 }
 
 .separator{
--fx-fill: pink;
+    -fx-fill: pink;
 }
 
 .menu{
