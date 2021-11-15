@@ -41,8 +41,6 @@ public class Item {
         this.id = id;
     }
 
-
-
     //Update name of item
     //2 and 256 characters inclusive
     public void setName(String name) throws StringIndexOutOfBoundsException{
@@ -51,7 +49,7 @@ public class Item {
         this.name = name;
     }
 
-    //Update price of task
+    //Update price of item
     //0 or greater
     //works with dollar or no dollar sign
     public void setPrice(String price) throws NumberFormatException{
@@ -72,18 +70,17 @@ public class Item {
         this.price = "$" + df.format(priceDouble);
     }
 
-    //gets the task id
+    //gets the item id
     public String getId(){
         return id;
     }
 
-
-    //gets the task name
+    //gets the item name
     public String getName(){
         return name;
     }
 
-    //gets the task price
+    //gets the item price
     public String getPrice(){
         return price;
     }

@@ -66,7 +66,7 @@
                     </Menu>
                         <Menu mnemonicParsing="false" styleClass="menu" text="Delete">
                            <items>
-                              <MenuItem mnemonicParsing="false" onAction="#deleteItem" text="Delete Selected Task" />
+                              <MenuItem mnemonicParsing="false" onAction="#deleteItem" text="Delete Selected Item" />
                               <MenuItem mnemonicParsing="false" onAction="#clearAll" text="Clear List" />
                            </items>
                         </Menu>
@@ -103,14 +103,14 @@
             </TextField>
          </children>
       </HBox>
-  <AnchorPane maxHeight="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="519.0" prefWidth="900.0" style="-fx-border-width: 0px;">
+  <AnchorPane maxHeight="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="519.0" prefWidth="900.0" style="-fx-border-width: 0px;">
          <children>
-            <TableView fx:id="tableView" editable="true" layoutX="108.0" layoutY="37.0" prefHeight="418.0" prefWidth="791.0" style="-fx-font-size: 16px;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="30.0">
+            <TableView fx:id="tableView" editable="true" layoutX="108.0" layoutY="37.0" maxHeight="1.7976931348623157E308" prefHeight="418.0" prefWidth="791.0" style="-fx-font-size: 16px;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="30.0">
               <columns>
-                  <TableColumn id="idCol" fx:id="idColumn" maxWidth="175.99999237060547" minWidth="130.0" onEditCommit="#changeId" prefWidth="175.99999237060547" text="id" />
+                  <TableColumn id="idCol" fx:id="idColumn" maxWidth="300.0" minWidth="145.0" onEditCommit="#changeId" prefWidth="175.99999237060547" text="id" />
                 <TableColumn id="nameCol" fx:id="nameColumn" maxWidth="1.7976931348623157E308" minWidth="100.0" onEditCommit="#changeName" prefWidth="488.0000305175781" text="name">
                 </TableColumn>
-                <TableColumn id="priceCol" fx:id="priceColumn" maxWidth="120.0" minWidth="120.0" onEditCommit="#changePrice" prefWidth="120.0" style="-fx-alignment: center-right;" text="price" />
+                <TableColumn id="priceCol" fx:id="priceColumn" maxWidth="300.0" minWidth="120.0" onEditCommit="#changePrice" prefWidth="120.0" style="-fx-alignment: center-right;" text="price" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -132,7 +132,7 @@
             <Separator opacity="0.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="25.0" />
             <TextField fx:id="priceField" promptText="price" styleClass="newTextFields" text="4" />
             <Separator opacity="0.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="25.0" />
-            <Button fx:id="newButton" defaultButton="true" mnemonicParsing="false" onAction="#newItem" prefHeight="27.0" prefWidth="74.0" text="Add">
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#newItem" prefHeight="27.0" prefWidth="74.0" text="Add">
                <font>
                   <Font name="Wingdings" size="14.0" />
                </font>

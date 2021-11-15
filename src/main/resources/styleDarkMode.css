@@ -21,56 +21,53 @@
 .table-view .column-header-background .label{
     -fx-background-color: transparent;
     -fx-font-size: 22px;
-    -fx-text-fill: white;
     -fx-alignment: center-left;
     -fx-font-weight: normal;
     -fx-font-family: Arial;
+
+    -fx-text-fill: lightgrey;
 }
 
 .table-view .column-header-background .label:hover{
-    -fx-text-fill: black;
+    -fx-text-fill: hotpink;
 }
 
 .table-view .table-cell{
     -fx-font-size:18px;
-    -fx-text-fill: lightgrey;
-   // -fx-border-color: black;
+    -fx-background-color: transparent;
+
+    -fx-text-fill: white;
     -fx-table-cell-border-color: #303030;
 }
 
 .table-row-cell:hover {
-    -fx-background-color: red;
-    -fx-text-fill: white;
+    -fx-background-color: mediumvioletred;
 }
 
 .table-row-cell:odd:hover {
-    -fx-background-color: red;
-    -fx-text-fill: white;
+    -fx-background-color: mediumvioletred;
 }
 
 .table-row-cell:selected {
-    -fx-background-color: pink;
-    -fx-text-fill: white;
+    -fx-background-color: hotpink;
+    -fx-text-fill: black; //nope
     -fx-background-radius: 15px;
 }
 
 .table-row-cell:odd:selected {
-    -fx-background-color: pink;
-    -fx-text-fill: white;
+    -fx-background-color: hotpink;
+    -fx-text-fill: black; //bope
     -fx-background-radius: 15px;
 }
-
  .table-row-cell{
     -fx-background-color: #292929;
-    -fx-border-color: #292929;
 }
 
 .table-row-cell:odd{
     -fx-background-color: #303030;
-    -fx-border-color: #303030;
 }
 
-/*
+
 .button{
     -fx-background-color: #909090;
     -fx-text-fill: black;
@@ -78,22 +75,20 @@
 
 .button:hover{
     -fx-text-fill: white;
-    -fx-background-color: rgb(0, 150, 201);
-}*/
+    -fx-background-color: deeppink;
+}
 
 .text-field{
     -fx-background-color: #202020;
-    -fx-font-fill: white;
+  //  -fx-border-color: #202020; maybeeeee
+    -fx-text-fill: hotpink;
 }
 
 .newTextFields{
+    -fx-background-radius: 8px;
     -fx-border-radius: 8px;
     -fx-font-size:14px;
     -fx-font-family: Corbel;
-}
-
-.text-field .label{
-    -fx-font-fill: pink;
 }
 
 AnchorPane, HBox, VBox{
@@ -101,21 +96,17 @@ AnchorPane, HBox, VBox{
 }
 
 .bottomPane{
--fx-background-color: #303030;
+    -fx-background-color: #303030;
 }
 
 .statusBar{
--fx-background-color: #151515;
--fx-text-fill: white;
+    -fx-background-color: #151515;
+    -fx-text-fill: cyan; //????
 }
 
 .rect{
     -fx-fill: #303030;
 
-}
-
-.separator{
-    -fx-fill: pink;
 }
 
 .menu{
@@ -127,5 +118,10 @@ AnchorPane, HBox, VBox{
 }
 
 .label{
+    -fx-text-fill: gray;
+}
+
+.menu-bar > .container > .menu-button > .label{ //make on hover bg change
     -fx-text-fill: whitesmoke;
 }
+

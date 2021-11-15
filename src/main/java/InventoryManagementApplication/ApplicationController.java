@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class ApplicationController {
-    protected static final ObservableList<Item> list = FXCollections.observableArrayList(); //Holds list of user's Tasks
+    protected static final ObservableList<Item> list = FXCollections.observableArrayList(); //Holds list of user's items
 
     // GUI Fields
     @FXML private TableView<Item> tableView;
@@ -42,7 +42,7 @@ public class ApplicationController {
 
     @FXML private VBox vBoxMain;
 
-    //Create new task with information given and add to table
+    //Create new item with information given and add to table
     //throw error if any fields blank
     //throw error if invalid formats
     //throw error if id not unique
@@ -93,7 +93,6 @@ public class ApplicationController {
                 String name = reader.nextLine();
                 String price = reader.nextLine();
                 newList.add(new Item(id, name, price));
-                System.out.println(id + " " + name + " " + price);
             }
             //Update Chart and Status
           //  list.clear();
@@ -134,11 +133,11 @@ public class ApplicationController {
         }
     }
 
-    //Deletes a task from the chart
-    //throws error if no task selected
+    //Deletes an item from the chart
+    //throws error if no item selected
     @FXML private void deleteItem(){
         try {
-            //Remove task
+            //Remove item
             Item itemSelected = tableView.getSelectionModel().getSelectedItem();
             list.remove(itemSelected);
             tableView.setItems(list);
@@ -152,15 +151,15 @@ public class ApplicationController {
 
     }
 
-    //Deletes all tasks from chart
+    //Deletes all items from chart
     @FXML private void clearAll() {
-        ObservableList<Item> allTasks = tableView.getItems();
-        allTasks.clear();
+        ObservableList<Item> all = tableView.getItems();
+        all.clear();
         list.clear();
         statusMessageTxt.setText("all items deleted");
     }
 
-    //Changes the id of a task in the chart
+    //Changes the id of an item in the chart
     //throws error if not correct format/blank
     @FXML private void changeId(CellEditEvent<Item, String> cell) {
         Item itemSelected =  tableView.getSelectionModel().getSelectedItem();
@@ -177,7 +176,7 @@ public class ApplicationController {
 
     }
 
-    //Changes the name of a task in the chart
+    //Changes the name of an item in the chart
     //throws error if name is blank
     //throws error if name too short/long
     @FXML private void changeName(CellEditEvent<Item, String> cell) {
@@ -195,21 +194,21 @@ public class ApplicationController {
         }
     }
 
-    //Changes the date of a task in the chart
+    //Changes the date of an item in the chart
     //throws error if price is invalid/blank
     @FXML private void changePrice(CellEditEvent<Item, String> cell) {
-        Item taskSelected = tableView.getSelectionModel().getSelectedItem();
+        Item itemSelected = tableView.getSelectionModel().getSelectedItem();
 
         try {
-            taskSelected.setPrice(cell.getNewValue());
-            list.remove(taskSelected);
-            list.add(new Item(taskSelected.getId(), taskSelected.getName(), taskSelected.getPrice()));
+            itemSelected.setPrice(cell.getNewValue());
+            list.remove(itemSelected);
+            list.add(new Item(itemSelected.getId(), itemSelected.getName(), itemSelected.getPrice()));
             statusMessageTxt.setText(":D");
 
         }catch (NumberFormatException e){ //ERROR - PRICE field invalid
             statusMessageTxt.setText("INVALID PRICE - MUST BE M/D/YYYY OR BLANK");
-            list.remove(taskSelected);
-            list.add(new Item(taskSelected.getId(), taskSelected.getName(), taskSelected.getPrice()));
+            list.remove(itemSelected);
+            list.add(new Item(itemSelected.getId(), itemSelected.getName(), itemSelected.getPrice()));
         }
     }
 
@@ -219,9 +218,9 @@ public class ApplicationController {
 
         ObservableList<Item> search = FXCollections.observableArrayList();
 
-        for(Item task : list){
-            if(task.getId().startsWith(searchIdField.getText()))
-                search.add(task);
+        for(Item item : list){
+            if(item.getId().startsWith(searchIdField.getText()))
+                search.add(item);
         }
         tableView.setItems(search);
     }
@@ -233,9 +232,9 @@ public class ApplicationController {
 
         ObservableList<Item> search = FXCollections.observableArrayList();
 
-        for(Item task : list){
-            if(task.getName().startsWith(searchNameField.getText()))
-                search.add(task);
+        for(Item item : list){
+            if(item.getName().startsWith(searchNameField.getText()))
+                search.add(item);
         }
         tableView.setItems(search);
     }
