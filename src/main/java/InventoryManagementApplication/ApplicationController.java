@@ -62,13 +62,13 @@ public class ApplicationController {
 
         //ERRORS
         }catch (ArrayIndexOutOfBoundsException e){ //ERROR - ID field invalid
-            statusMessageTxt.setText("INVALID ID - MUST BE M/D/YYYY OR BLANK");
+            statusMessageTxt.setText("BLANK OR INVALID ID - MUST BE IN A-XXX-XXX-XXX FORMAT (A=Letter, X=Letter/Digit) AND UNIQUE FOR EACH ITEM");
 
         }catch (StringIndexOutOfBoundsException e){ //NAME
-            statusMessageTxt.setText("INVALID NAME - Must be between 2 and 256 characters");
+            statusMessageTxt.setText("BLANK OR INVALID NAME - Must be between 2 and 256 characters");
 
         }catch (NumberFormatException e){ //ERROR - PRICE field invalid
-            statusMessageTxt.setText("INVALID PRICE - MUST BE M/D/YYYY OR BLANK");
+            statusMessageTxt.setText("BLANK OR INVALID PRICE - MUST BE NUMERIC");
         }
     }
 
@@ -166,7 +166,7 @@ public class ApplicationController {
             statusMessageTxt.setText(":D");
 
         }catch (ArrayIndexOutOfBoundsException e){ //ERROR - ID field invalid
-            statusMessageTxt.setText("INVALID ID - MUST BE M/D/YYYY OR BLANK");
+            statusMessageTxt.setText("BLANK OR INVALID ID - MUST BE IN A-XXX-XXX-XXX FORMAT (A=Letter, X=Letter/Digit) AND UNIQUE FOR EACH ITEM");
             list.remove(itemSelected);
             list.add(new Item(itemSelected.getId(), itemSelected.getName(), itemSelected.getPrice()));
         }
@@ -184,7 +184,7 @@ public class ApplicationController {
             statusMessageTxt.setText(":D");
 
         }catch (StringIndexOutOfBoundsException e){
-            statusMessageTxt.setText("INVALID NAME - Must be between 2 and 256 characters");
+            statusMessageTxt.setText("BLANK OR INVALID NAME - Must be between 2 and 256 characters");
             list.remove(itemSelected);
             list.add(new Item(itemSelected.getId(), itemSelected.getName(), itemSelected.getPrice()));
         }
@@ -202,7 +202,7 @@ public class ApplicationController {
             statusMessageTxt.setText(":D");
 
         }catch (NumberFormatException e){ //ERROR - PRICE field invalid
-            statusMessageTxt.setText("INVALID PRICE - MUST BE M/D/YYYY OR BLANK");
+            statusMessageTxt.setText("BLANK OR INVALID PRICE - MUST BE NUMERIC");
             list.remove(itemSelected);
             list.add(new Item(itemSelected.getId(), itemSelected.getName(), itemSelected.getPrice()));
         }
