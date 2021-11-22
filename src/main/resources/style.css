@@ -59,7 +59,7 @@
     -fx-background-radius: 15px;
 }
 
- .table-row-cell{
+.table-row-cell{
     -fx-background-color: whitesmoke;
 }
 
@@ -90,12 +90,12 @@
 }
 
 .bottomPane{
--fx-background-color: whitesmoke;
+    -fx-background-color: whitesmoke;
 }
 
 .statusBar{
--fx-background-color: lightgrey;
--fx-text-fill: white;
+    -fx-background-color: lightgrey;
+    -fx-text-fill: white;
 }
 
 .rect{
@@ -103,8 +103,16 @@
 }
 
 .menu{
-    -fx-background-color: whitesmoke; //change
     -fx-border-color: whitesmoke;
     -fx-background-radius: 20px;
     -fx-border-width: 0px;
+}
+
+.darkModeButton{
+    -fx-background-color: transparent;
+}
+
+.darkModeButton:hover{
+    -fx-text-fill: white;
+    -fx-background-color: rgb(0, 150, 201);
 }

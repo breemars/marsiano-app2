@@ -19,7 +19,7 @@ public class Item {
     }
 
     //Update ID of item
-    //Format A-XXX-XXX-XXX and unique 0-234-678-101112
+    //Format A-XXX-XXX-XXX and unique
     public void setId(String id) throws ArrayIndexOutOfBoundsException{
 
         if(id.length() != 13 || !Character.isLetter(id.charAt(0)))
@@ -35,8 +35,8 @@ public class Item {
                     throw new ArrayIndexOutOfBoundsException();
             }
         }
-        if(!Extas.isIdUnique(id))
-            throw new ArrayIndexOutOfBoundsException("GET FUCKED");
+        if(!Functionality.isIdUnique(id))
+            throw new ArrayIndexOutOfBoundsException();
 
         this.id = id;
     }
@@ -50,8 +50,9 @@ public class Item {
     }
 
     //Update price of item
-    //0 or greater
+    //Throws error if not 0 or greater
     //works with dollar or no dollar sign
+    //adds a dollar sign if none provided
     public void setPrice(String price) throws NumberFormatException{
 
         if(price.length() == 0)

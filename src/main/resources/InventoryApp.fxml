@@ -42,7 +42,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -54,17 +54,17 @@
   <children>
       <HBox prefHeight="35.0" prefWidth="604.0">
          <children>
-            <HBox prefHeight="35.0" prefWidth="132.0">
+            <HBox prefHeight="36.0" prefWidth="82.0">
                <children>
-                <MenuBar prefHeight="30.0" prefWidth="117.0" style="-fx-background-color: transparent;" styleClass="menuBar">
+                <MenuBar prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: transparent;" styleClass="menuBar">
                   <menus>
-                    <Menu mnemonicParsing="false" styleClass="menu" text="File">
+                    <Menu mnemonicParsing="false" styleClass="menu" text="📁 ">
                       <items>
                         <MenuItem mnemonicParsing="false" onAction="#openList" text="Open List" />
                         <MenuItem mnemonicParsing="false" onAction="#downloadList" text="Download List" />
                       </items>
                     </Menu>
-                        <Menu mnemonicParsing="false" styleClass="menu" text="Delete">
+                        <Menu mnemonicParsing="false" styleClass="menu" text="❌">
                            <items>
                               <MenuItem mnemonicParsing="false" onAction="#deleteItem" text="Delete Selected Item" />
                               <MenuItem mnemonicParsing="false" onAction="#clearAll" text="Clear List" />
@@ -74,21 +74,27 @@
                      <HBox.margin>
                         <Insets top="5.0" />
                      </HBox.margin>
+                     <tooltip>
+                        <Tooltip text="File Options | Delete Options" />
+                     </tooltip>
                 </MenuBar>
                </children>
                <HBox.margin>
                   <Insets />
                </HBox.margin>
             </HBox>
-            <ToggleButton mnemonicParsing="false" onAction="#darkMode" prefHeight="26.0" prefWidth="63.0" styleClass="menu" text="Dark">
+            <Button mnemonicParsing="false" onAction="#darkMode" prefHeight="26.0" prefWidth="34.0" styleClass="darkModeButton" text="🎨">
+               <tooltip>
+                  <Tooltip text="Change Color Scheme" />
+               </tooltip>
                <HBox.margin>
                   <Insets top="5.0" />
                </HBox.margin>
-            </ToggleButton>
-            <Separator maxWidth="1.7976931348623157E308" opacity="0.0" orientation="VERTICAL" prefHeight="32.0" prefWidth="457.0" />
-            <TextField fx:id="searchIdField" onKeyTyped="#searchById" prefHeight="26.0" prefWidth="124.0" promptText="search by id...">
+            </Button>
+            <Separator maxWidth="1.7976931348623157E308" opacity="0.0" orientation="VERTICAL" prefHeight="32.0" prefWidth="457.0" HBox.hgrow="ALWAYS" />
+            <TextField fx:id="searchIdField" onKeyTyped="#search" prefHeight="26.0" prefWidth="124.0" promptText="search by id...">
                <HBox.margin>
-                  <Insets top="8.0" />
+                  <Insets top="10.0" />
                </HBox.margin>
             </TextField>
             <Separator opacity="0.0" orientation="VERTICAL" prefHeight="29.0" prefWidth="29.0">
@@ -96,14 +102,14 @@
                   <Insets top="5.0" />
                </HBox.margin>
             </Separator>
-            <TextField fx:id="searchNameField" onKeyTyped="#searchByName" prefHeight="26.0" prefWidth="179.0" promptText="search by name...">
+            <TextField fx:id="searchNameField" onKeyTyped="#search" prefHeight="26.0" prefWidth="179.0" promptText="search by name...">
                <HBox.margin>
-                  <Insets right="15.0" top="8.0" />
+                  <Insets right="15.0" top="10.0" />
                </HBox.margin>
             </TextField>
          </children>
       </HBox>
-  <AnchorPane maxHeight="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="519.0" prefWidth="900.0" style="-fx-border-width: 0px;">
+  <AnchorPane maxHeight="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="519.0" prefWidth="900.0" style="-fx-border-width: 0px;" VBox.vgrow="ALWAYS">
          <children>
             <TableView fx:id="tableView" editable="true" layoutX="108.0" layoutY="37.0" maxHeight="1.7976931348623157E308" prefHeight="418.0" prefWidth="791.0" style="-fx-font-size: 16px;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="30.0">
               <columns>
@@ -120,17 +126,17 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="39.0" layoutX="814.0" layoutY="24.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" styleClass="rect" width="24.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="24.0" />
          </children>
       </AnchorPane>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox maxHeight="-Infinity" prefHeight="90.0" prefWidth="900.0" VBox.vgrow="NEVER">
          <children>
-            <TextField fx:id="idField" promptText="id" styleClass="newTextFields" text="a-asd-asd-123" />
+            <TextField fx:id="idField" promptText="id" styleClass="newTextFields" HBox.hgrow="ALWAYS" />
             <Separator layoutX="664.0" layoutY="20.0" opacity="0.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="25.0" />
-            <TextField fx:id="nameField" prefHeight="12.0" prefWidth="408.0" promptText="name" styleClass="newTextFields" text="asdf">
+            <TextField fx:id="nameField" prefHeight="12.0" prefWidth="408.0" promptText="name" styleClass="newTextFields" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
             </TextField>
             <Separator opacity="0.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="25.0" />
-            <TextField fx:id="priceField" promptText="price" styleClass="newTextFields" text="4" />
+            <TextField fx:id="priceField" promptText="price" styleClass="newTextFields" HBox.hgrow="ALWAYS" />
             <Separator opacity="0.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="25.0" />
             <Button defaultButton="true" mnemonicParsing="false" onAction="#newItem" prefHeight="27.0" prefWidth="74.0" text="Add">
                <font>

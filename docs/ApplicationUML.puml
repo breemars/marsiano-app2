@@ -25,10 +25,13 @@ class ApplicationController{
     - nameColumn : TableColumn<Task, String>
     - priceColumn : TableColumn<Task, String>
 
-    - TextField idField;
-    - TextField nameField;
-    - TextField priceField;
+    - idField : TextField
+    - nameField : TextField
+    - priceField : TextField
+    - searchIdField : TextField
+    - searchNameField : TextField
     - statusMessageTxt : Label
+    - vBoxMain : VBox
 
 'methods
     -newItem()
@@ -43,8 +46,7 @@ class ApplicationController{
     -changeName()
     -changePrice()
 
-    -searchById()
-    -searchByName()
+    -search()
 
     -darkMode()
 
@@ -55,6 +57,18 @@ class InventoryManagementApplication{
 'methods
     +main(String[] args)
     +start(Stage stage)
+}
+
+class Functionality{
+'methods
+    +openTXTFile(File selectedFile): ObservableList<Item>
+    +downloadTXTFile(File selectedFile, ObservableList<Item> list)
+    +openJSONFile(File selectedFile): ObservableList<Item>
+    +downloadJSONFile(File selectedFile, ObservableList<Item> list)
+    +openHTMLFile(File selectedFile): ObservableList<Item>
+    +downloadHTMLFile(File selectedFile, ObservableList<Item> list)
+
+    +isIdUnique(String id): boolean
 }
 
 @enduml

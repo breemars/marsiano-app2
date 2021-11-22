@@ -50,13 +50,11 @@
 
 .table-row-cell:selected {
     -fx-background-color: hotpink;
-    -fx-text-fill: black; //nope
     -fx-background-radius: 15px;
 }
 
 .table-row-cell:odd:selected {
     -fx-background-color: hotpink;
-    -fx-text-fill: black; //bope
     -fx-background-radius: 15px;
 }
  .table-row-cell{
@@ -67,9 +65,8 @@
     -fx-background-color: #303030;
 }
 
-
 .button{
-    -fx-background-color: #909090;
+    -fx-background-color: gray;
     -fx-text-fill: black;
 }
 
@@ -80,7 +77,7 @@
 
 .text-field{
     -fx-background-color: #202020;
-  //  -fx-border-color: #202020; maybeeeee
+    -fx-border-color: #202020;
     -fx-text-fill: hotpink;
 }
 
@@ -101,27 +98,43 @@ AnchorPane, HBox, VBox{
 
 .statusBar{
     -fx-background-color: #151515;
-    -fx-text-fill: cyan; //????
+    -fx-text-fill: white;
+}
+
+.statusBar .label{
+    -fx-text-fill: silver;
 }
 
 .rect{
     -fx-fill: #303030;
-
 }
 
 .menu{
-    -fx-background-color: #202020;
     -fx-border-color: #303030;
     -fx-background-radius: 20px;
     -fx-border-width: 0px;
     -fx-text-fill: whitesmoke;
 }
 
-.label{
-    -fx-text-fill: gray;
+.table-view .label{
+    -fx-text-fill: silver;
 }
 
-.menu-bar > .container > .menu-button > .label{ //make on hover bg change
+.menu-bar > .container > .menu-button:hover{
+    -fx-text-fill: whitesmoke;
+    -fx-background-color: deeppink;
+}
+
+.menu-bar > .container > .menu-button > .label{
     -fx-text-fill: whitesmoke;
 }
 
+.darkModeButton{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.darkModeButton:hover{
+    -fx-text-fill: white;
+    -fx-background-color: deeppink;
+}

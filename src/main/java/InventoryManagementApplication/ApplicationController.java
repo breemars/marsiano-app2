@@ -17,10 +17,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
+
 
 public class ApplicationController {
     protected static final ObservableList<Item> list = FXCollections.observableArrayList(); //Holds list of user's items
@@ -57,8 +55,10 @@ public class ApplicationController {
             //Update status
             statusMessageTxt.setText(":D");
 
-            //Clear text fields ADD MORE
-            //nameField.setText("");
+            //Clear text fields
+            idField.setText("");
+            nameField.setText("");
+            priceField.setText("");
 
         //ERRORS
         }catch (ArrayIndexOutOfBoundsException e){ //ERROR - ID field invalid
@@ -78,31 +78,26 @@ public class ApplicationController {
         //Open window
         Stage stage = new Stage();
         FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("TextFile", "*.txt"));
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("TextFile", "*.txt"),
+                        new FileChooser.ExtensionFilter("JSON", "*.json"),
+                        new FileChooser.ExtensionFilter("HTML", "*.html"));
         File selectedFile = fileChooser.showOpenDialog(stage);
+        String fileType = selectedFile.getName().substring(selectedFile.getName().lastIndexOf(".") + 1);
 
-        //Import File Data
-        try(Scanner reader = new Scanner(selectedFile)){
+        //Update Chart and Status
+         try {
+             list.clear();
+             switch (fileType) {
+                 case "txt" -> list.addAll(Functionality.openTXTFile(selectedFile));
+                 case "json" -> list.addAll(Functionality.openJSONFile(selectedFile));
+                 case "html" -> list.addAll(Functionality.openHTMLFile(selectedFile));
+                 default -> throw new IOException();
+             }
+             tableView.setItems(list);
+             statusMessageTxt.setText("Opened " + selectedFile);
 
-            ObservableList<Item> newList = FXCollections.observableArrayList();
-            //ObservableList<Item> backupList = list; nope its just a pointer
-            list.clear();
-
-            while (reader.hasNextLine()) {
-                String id = reader.nextLine();
-                String name = reader.nextLine();
-                String price = reader.nextLine();
-                newList.add(new Item(id, name, price));
-            }
-            //Update Chart and Status
-          //  list.clear();
-           list.addAll(newList);
-           tableView.setItems(list);
-            statusMessageTxt.setText("Opened " + selectedFile);
-
-        } catch (Exception e) { //ERROR - file invalid
+         }catch(Exception e){ //ERROR - file invalid
             statusMessageTxt.setText("INVALID FILE - Must be in proper format");
-           // statusMessageTxt.setStyle("-fx-text-fill: red;"); it does work doe, create seperate method?
         }
     }
 
@@ -114,22 +109,24 @@ public class ApplicationController {
         Stage stage = new Stage();
         FileChooser fileChooser = new FileChooser();
         fileChooser.setInitialFileName("myList.txt");
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("TextFile", "*.txt"));
-
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("TextFile", "*.txt"),
+                new FileChooser.ExtensionFilter("JSON", "*.json"),
+                new FileChooser.ExtensionFilter("HTML", "*.html"));
         File selectedFile = fileChooser.showSaveDialog(stage);
+        String fileType = selectedFile.getName().substring(selectedFile.getName().lastIndexOf(".") + 1);
 
-        //Write data to txt file
-        try (FileWriter writer = new FileWriter(selectedFile)) {
-            for (Item item : list) {
-                writer.write(item.getId() + "\n");
-                writer.write(item.getName() + "\n");
-                writer.write(item.getPrice() + "\n");
+        //Write data to file
+        try{
+            switch (fileType) {
+                case "txt" -> Functionality.downloadTXTFile(selectedFile, list);
+                case "json" -> Functionality.downloadJSONFile(selectedFile, list);
+                case "html" -> Functionality.downloadHTMLFile(selectedFile, list);
+                default -> throw new IOException();
             }
             statusMessageTxt.setText("Downloaded " + selectedFile);
 
         }catch (IOException e){ //ERROR - file invalid
             statusMessageTxt.setText("INVALID FILE");
-
         }
     }
 
@@ -190,7 +187,6 @@ public class ApplicationController {
             statusMessageTxt.setText("INVALID NAME - Must be between 2 and 256 characters");
             list.remove(itemSelected);
             list.add(new Item(itemSelected.getId(), itemSelected.getName(), itemSelected.getPrice()));
-            //tableView.setItems(list);
         }
     }
 
@@ -212,39 +208,26 @@ public class ApplicationController {
         }
     }
 
-    //searches chart by ID and shows results
-    @FXML private void searchById(){
-        statusMessageTxt.setText("searching... clear field to reset");
+    //searches chart by name and/or ID then shows results
+    @FXML private void search(){
 
+        statusMessageTxt.setText("searching... clear fields to reset");
         ObservableList<Item> search = FXCollections.observableArrayList();
 
         for(Item item : list){
-            if(item.getId().startsWith(searchIdField.getText()))
+            if(item.getId().startsWith(searchIdField.getText()) && item.getName().startsWith(searchNameField.getText()))
                 search.add(item);
         }
         tableView.setItems(search);
     }
 
-    //searches chart by name and shows results
-    @FXML private void searchByName(){
-
-        statusMessageTxt.setText("searching... clear field to reset");
-
-        ObservableList<Item> search = FXCollections.observableArrayList();
-
-        for(Item item : list){
-            if(item.getName().startsWith(searchNameField.getText()))
-                search.add(item);
-        }
-        tableView.setItems(search);
-    }
-
-    //Update the progress bar when changes are made
+    //Changes the color scheme from light to dark
     @FXML private void darkMode(){
-        if(vBoxMain.getStylesheets().get(0).equals("style.css"))
-            vBoxMain.getStylesheets().add("styleDarkMode.css");
-        else
+
+        if(vBoxMain.getStylesheets().get(0).equals("styleDarkMode.css"))
             vBoxMain.getStylesheets().add("style.css");
+        else
+            vBoxMain.getStylesheets().add("styleDarkMode.css");
 
         vBoxMain.getStylesheets().remove(0);
     }
